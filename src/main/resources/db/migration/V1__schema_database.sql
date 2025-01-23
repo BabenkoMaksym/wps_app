@@ -1,0 +1,1 @@
+CREATE SCHEMA IF NOT EXISTS wps_app_data;

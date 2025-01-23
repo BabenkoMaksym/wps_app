@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" , xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>WPS Specification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table th, .table td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: left;
+        }
+        .table th {
+            background-color: #f2f2f2;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+<h1>WPS - Специфікація процедури зварювання</h1>
+<table class="table">
+    <tr>
+        <th>Виробник/Manufacturer</th>
+        <td>SV metal spol. s r.o</td>
+        <th>Число WQR</th>
+        <td class="highlight" th:text="${wps.numberWqr}"></td>
+    </tr>
+    <tr>
+        <th>Сварювальна процедура</th>
+        <td class="highlight" th:text="${wps.weldingProcess}"></td>
+        <th>Друк зварювання</th>
+        <td class="highlight" th:text="${wps.weldingType}"></td>
+    </tr>
+    <tr>
+        <th>Товщина матеріалу</th>
+        <td class="highlight" th:text="${wps.materialThickness}"></td>
+        <th>Витрата газу</th>
+        <td class="highlight" th:text="${wps.gasFlowRate}"></td>
+    </tr>
+    <tr>
+        <th>Техніка зварювання</th>
+        <td colspan="3" class="highlight" th:text="${wps.weldingTechnique}"></td>
+    </tr>
+    <!-- Add other rows here as necessary -->
+</table>
+
+<h2>Параметри зварювання</h2>
+<table class="table">
+    <tr>
+        <th>Laser Power (W)</th>
+        <td class="highlight" th:text="${wps.laserPower}"></td>
+    </tr>
+    <tr>
+        <th>Pulse Frequency (Hz)</th>
+        <td class="highlight" th:text="${wps.pulseFrequency}"></td>
+    </tr>
+    <tr>
+        <th>PWM (%)</th>
+        <td class="highlight" th:text="${wps.pwm}"></td>
+    </tr>
+    <!-- Add more welding parameters here -->
+</table>
+</body>
+</html>

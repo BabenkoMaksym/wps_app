@@ -1,0 +1,1 @@
+INSERT INTO wps_app_data.users(name, pass, email, access_right_level, save_path) VALUES ('admin', 'admin', null, 127, null);
