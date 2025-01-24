@@ -17,50 +17,35 @@ public class Wps {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column
     private String name;
-    @Column
     private String manufacturer;
-    @Column
     private String inspectionAgency;
-    @Column
-    private Integer numberWPQR;
-    @Column
+    @OneToOne
+    @JoinColumn(name="wpqr", referencedColumnName = "id")
+    private Wpqr idWPQR;
     private String cleaning;
-    @Column
+    @Column(name="weld_proc")
     private Integer weldingProcedure;
-    @Column
+    @Enumerated(EnumType.STRING)
+    @Column(name="weld_type")
     private WeldingType weldingType;
-    @Column
+    @Enumerated(EnumType.STRING)
     private WeldingPosition weldingPosition;
-    @Column
     private String fillerMaterial;
-    @Column
     private Float materialThickness2;
-    @Column
     private Float materialThickness1;
-    @Column
     private Float outsideDiameter1;
-    @Column
     private Float outsideDiameter2;
-    @Column
     private String backingGas;
-    @Column
     private Float backingGasFlowRate;
-    @Column
     private String specificationOfBaseMaterial;
-    @Column
     private String groupOfAdditionalMaterial;
-    @Column
     private String imgWeldingDesign;
-    @Column
     private String imgWeldingTechnique;
-    @Column
     private float weldSize;
-    @Column
-    @OneToMany
+
+    @OneToMany(mappedBy = "wps", cascade=CascadeType.ALL, orphanRemoval = true)
     private List<WeldingParameters> weldingParametersList;
-    @Column
     private String note;
 
     @Column(name = "created_at", updatable = false, nullable = false)
